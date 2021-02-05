@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :find_song, only: [:show, :edit]
+  before_action :find_song, only: [:show, :edit, :update]
 
   def index
     @songs = Song.all
@@ -15,7 +15,6 @@ class SongsController < ApplicationController
   end
   
   def update
-    @song = Song.new
     @song.update(song_params)
     redirect_to song_path(@song)
   end

@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-  before_action :find_genre, only: [:show, :edit]
+  before_action :find_genre, only: [:show, :edit, :update]
 
   def index
     @genres = Genre.all
@@ -15,7 +15,6 @@ class GenresController < ApplicationController
   end
   
   def update
-    @genre = Genre.new
     @genre.update(genre_params)
     redirect_to genre_path(@genre)
   end
